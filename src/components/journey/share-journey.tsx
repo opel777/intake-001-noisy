@@ -1,7 +1,7 @@
 import React from "react";
 
-const shareJourney = () => {
-    return <div>shareJourney</div>;
+const ShareJourney = () => {
+  return <div>shareJourney</div>;
 };
 
-export default shareJourney;
+export default ShareJourney;
