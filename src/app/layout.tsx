@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google"; // I changed the font to the figma project font.
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const lato = Lato({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body /*className={inter.className}*/>
+            <body className={lato.className}>
                 <ChakraProvider>{children}</ChakraProvider>
             </body>
         </html>
