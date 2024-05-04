@@ -3,36 +3,17 @@ import { useEffect, useState } from "react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaBed } from "react-icons/fa";
+import { Accommodation, AccommodationPlace, AccommodationPersons } from "../../types/accommodations";
 
 interface Props {
     search: string;
 }
 
 export default function Accommodations({ search }: Props) {
-    // Define el los tipos de TypeScript para los estados
-    type Accommodation = {
-        id: number;
-        name: string;
-        description: string;
-        city: string;
-        price: number;
-        persons: number;
-        image: string;
-        favorite: boolean;
-    };
-    type AccommodationPlace = {
-        id: number;
-        name: string;
-    };
-    type JourneyPerson = {
-        id: number;
-        number: number;
-    };
-
     // Estados para almacenar la información
     const [accommodations, setAccommodations] = useState<Accommodation[]>([]);
     const [accommodationsPlaces, setAccommodationsPlaces] = useState<AccommodationPlace[]>([]);
-    const [accommodationsPersons, setAccommodationsPersons] = useState<JourneyPerson[]>([]);
+    const [accommodationsPersons, setAccommodationsPersons] = useState<AccommodationPersons[]>([]);
 
     // Constantes con los colores que utiliza el componente
     const gray50 = theme.colors.gray[50];
@@ -138,14 +119,7 @@ export default function Accommodations({ search }: Props) {
             {/* Cards */}
             <Flex width={"100%"} maxWidth={1240} gap={5} flexDirection={{ base: "column", md: "row" }} alignItems={"center"} flexWrap={"wrap"}>
                 {filteredAccomodations.map((accommodation) => (
-                    <Grid
-                        key={accommodation.id}
-                        maxWidth={400}
-                        gridTemplateColumns={"2fr 3fr"}
-                        backgroundColor={gray50}
-                        boxShadow={`0 0 12px 2px ${purple200}`}
-                        borderRadius={4}
-                    >
+                    <Grid key={accommodation.id} maxWidth={400} gridTemplateColumns={"2fr 3fr"} backgroundColor={gray50} boxShadow={`0 0 12px 2px ${purple200}`} borderRadius={4}>
                         <Image src={accommodation.image} height={"100%"} objectFit={"cover"} borderRadius={"4px 0 0 4px"} />
                         <Flex padding={4} flexDirection={"column"} gap={2}>
                             <Flex justifyContent={"space-between"}>
