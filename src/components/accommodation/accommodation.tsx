@@ -4,7 +4,11 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaBed } from "react-icons/fa";
 
-export default function Accommodations({ search }: string) {
+interface Props {
+    search: string;
+}
+
+export default function Accommodations({ search }: Props) {
     // Define el los tipos de TypeScript para los estados
     type Accommodation = {
         id: number;
@@ -134,7 +138,14 @@ export default function Accommodations({ search }: string) {
             {/* Cards */}
             <Flex width={"100%"} maxWidth={1240} gap={5} flexDirection={{ base: "column", md: "row" }} alignItems={"center"} flexWrap={"wrap"}>
                 {filteredAccomodations.map((accommodation) => (
-                    <Grid key={accommodation.id} maxWidth={400} gridTemplateColumns={"2fr 3fr"} backgroundColor={gray50} boxShadow={`0 0 12px 2px ${purple200}`} borderRadius={4}>
+                    <Grid
+                        key={accommodation.id}
+                        maxWidth={400}
+                        gridTemplateColumns={"2fr 3fr"}
+                        backgroundColor={gray50}
+                        boxShadow={`0 0 12px 2px ${purple200}`}
+                        borderRadius={4}
+                    >
                         <Image src={accommodation.image} height={"100%"} objectFit={"cover"} borderRadius={"4px 0 0 4px"} />
                         <Flex padding={4} flexDirection={"column"} gap={2}>
                             <Flex justifyContent={"space-between"}>

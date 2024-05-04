@@ -3,28 +3,13 @@ import { useEffect, useState } from "react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { BiCalendarEvent } from "react-icons/bi";
 import { GiCarSeat } from "react-icons/gi";
+import { Journey, JourneyFestival, JourneyPlace } from "@/types/journey";
 
-export default function Journeys({ search }: string) {
-    // Define el los tipos de TypeScript para los estados
-    type Journey = {
-        id: number;
-        name: string;
-        description: string;
-        date: string;
-        price: number;
-        persons: number;
-        image: string;
-        favorite: boolean;
-    };
-    type JourneyFestival = {
-        id: number;
-        name: string;
-    };
-    type JourneyPlace = {
-        id: number;
-        name: string;
-    };
+interface Props {
+    search: string;
+}
 
+export default function Journeys({ search }: Props) {
     // Estados para almacenar la información
     const [journeys, setJourneys] = useState<Journey[]>([]);
     const [journeysFestivals, setJourneysFestivals] = useState<JourneyFestival[]>([]);
@@ -134,7 +119,14 @@ export default function Journeys({ search }: string) {
             {/* Cards */}
             <Flex width={"100%"} maxWidth={1240} gap={5} flexDirection={{ base: "column", md: "row" }} alignItems={"center"} flexWrap={"wrap"}>
                 {filteredJourneys.map((journey) => (
-                    <Grid key={journey.id} maxWidth={400} gridTemplateColumns={"2fr 3fr"} backgroundColor={gray50} boxShadow={`0 0 12px 2px ${purple200}`} borderRadius={4}>
+                    <Grid
+                        key={journey.id}
+                        maxWidth={400}
+                        gridTemplateColumns={"2fr 3fr"}
+                        backgroundColor={gray50}
+                        boxShadow={`0 0 12px 2px ${purple200}`}
+                        borderRadius={4}
+                    >
                         <Image src={journey.image} height={"100%"} objectFit={"cover"} borderRadius={"4px 0 0 4px"} />
                         <Flex padding={4} flexDirection={"column"} gap={2}>
                             <Flex justifyContent={"space-between"}>

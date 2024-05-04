@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { BiCalendarEvent } from "react-icons/bi";
 
-export default function Festivals({ search }: string) {
+interface Props {
+    search: string;
+}
+
+export default function Festivals({ search }: Props) {
     // Define el los tipos de TypeScript para los estados
     type Festival = {
         id: number;
@@ -102,7 +106,14 @@ export default function Festivals({ search }: string) {
             {/* Cards */}
             <Flex width={"100%"} maxWidth={1240} gap={5} flexDirection={{ base: "column", md: "row" }} alignItems={"center"} flexWrap={"wrap"}>
                 {filteredFestivals.map((festival) => (
-                    <Grid key={festival.id} maxWidth={400} gridTemplateColumns={"2fr 3fr"} backgroundColor={gray50} boxShadow={`0 0 12px 2px ${purple200}`} borderRadius={4}>
+                    <Grid
+                        key={festival.id}
+                        maxWidth={400}
+                        gridTemplateColumns={"2fr 3fr"}
+                        backgroundColor={gray50}
+                        boxShadow={`0 0 12px 2px ${purple200}`}
+                        borderRadius={4}
+                    >
                         <Image src={festival.image} height={"100%"} objectFit={"cover"} borderRadius={"4px 0 0 4px"} />
                         <Flex padding={4} flexDirection={"column"} gap={2}>
                             <Flex justifyContent={"space-between"}>
