@@ -23,6 +23,6 @@ export async function POST(request: Request) {
     headers: {
       "Content-Type": "application/json",
     },
-    status: 200,
+    status: 201,
   });
 }
