@@ -15,7 +15,6 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-<<<<<<< HEAD
     return (
         <html lang="en">
             <body className={lato.className}>
@@ -23,13 +22,4 @@ export default function RootLayout({
             </body>
         </html>
     );
-=======
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ChakraProvider>{children}</ChakraProvider>
-      </body>
-    </html>
-  );
->>>>>>> cec3192 (Update)
 }
