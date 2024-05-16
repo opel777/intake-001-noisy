@@ -78,7 +78,7 @@ Este comando iniciará el servidor de desarrollo y abrirá automáticamente el p
 
 ¡Ahora has descargado y ejecutado el proyecto en tu entorno local!
 
-# contibucion!
+# contibución!
 
 Dentro de las tareas a realizar dentro del proyecto podems destacar de mi contribucin los siguientes componentes:
 
